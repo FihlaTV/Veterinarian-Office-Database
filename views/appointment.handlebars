@@ -1,0 +1,45 @@
+﻿<html>
+<head>
+    <meta charset="utf-8" />
+    <title>appointments</title>
+</head>
+<body>
+    <h1>Current Appointments:</h1>
+	<table>
+	<thead>
+		<th>Date</th>
+		<th>Time</th>
+		<th>Pet name</th>
+	<thead>
+
+	<tbody>
+		{{#each appointment}}
+		<tr>
+			<td>{{date}}</td>
+			<td>{{time}}</td>
+			<td>{{pet}}</td>
+			<td><button onclick="deleteAppointment({{id}})">Delete</button></td>
+			<td><a href="/appointment/{{id}}">Update</a></td>
+		</tr>
+		{{/each}} 
+	</tbody>
+	</table>
+
+
+    <!--Add a new appointment-->
+    <h1>Add new appointment:</h1>
+    <form id="addAppointment" action="/appointment" method="post">
+        <fieldset>
+            Date: <input type="text" name="date"><br>
+            Time: <input type="text" name="time"><br>
+            Pet: <select name="pet_id">
+			{{#each pet}}
+			<option value="{{id}}">{{"p_name"}}</option>
+			{{/each}}
+		 </select>
+		 </br>
+            <input type="submit" value="Submit"><br />
+        </fieldset>
+        <br />
+</body>
+</html>

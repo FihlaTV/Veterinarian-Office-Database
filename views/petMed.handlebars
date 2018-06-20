@@ -1,0 +1,47 @@
+﻿<html>
+<head>
+    <title>Pets and Medications</title>
+</head>
+<body>
+    <h1>Associate medication(s) to pets</h1>
+	<form id="addPetMed" action="/petMed" method="post">
+		Pet: 
+			<select name='pet_id'>
+				{{#each pet}}
+				<option value='{{p_ID}}'>{{p_name}}</option>
+				{{/each}}
+			</select>
+
+		<br>
+
+		 Medications:
+			<select name='medication_id'> 
+        			{{#each medication}}
+        			<option value='{{m_ID}}'>{{m_name}}</option>
+        			{{/each}}
+    			</select><br>
+    <input type="submit" value="Submit">
+	</form>
+
+           <br />
+
+    <h1>List of pets and medications</h1>
+    <table>
+        <thead>
+            <th>Pet</th>
+            <th>Medication</th>
+        </thead>
+        <tbody>
+            {{#each petMed}}
+                <tr>
+                    <td>{{pet}}</td>
+                    <td>{{med}}</td>
+		    <td><button onclick="deletePetMed({{p_ID}}, {{m_ID}})">Delete</td>	
+                </tr>
+                {{else}}
+                <b>No pet with any medications found! Grant some using the form.</b>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+</html>

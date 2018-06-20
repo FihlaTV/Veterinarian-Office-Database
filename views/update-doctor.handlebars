@@ -1,0 +1,14 @@
+﻿<html>
+
+<head>
+    <h1>Update {{doctor.d_name}} :</h1>
+</head>
+
+<body>
+    <form id="update-doctor" action="/doctor" method="post">
+        Name: <input type="text" name="d_name" value="{{doctor.d_name}}"><br>
+    </form>
+    <button onclick="updateDoctor({{doctor.id}})">Update</button>
+</body>
+
+</html>

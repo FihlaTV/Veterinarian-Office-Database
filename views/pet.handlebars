@@ -1,0 +1,75 @@
+﻿<html>
+<head>
+    <title>pets info</title>
+</head>
+<body>
+	
+	<form id='filter_pet' action='' method=''>
+	<!--- this form does not submit directly, the button handles all the interaction with backend -->
+    	<label> Filter by doctor </label>
+    	<select id='doctor_filter' name="doctor"> 
+        	{{#each doctor}}
+       	 	<option value="{{id}}">{{d_name}}</option>
+        	{{/each}}
+    	</select><br>
+    	<input type="button" value="Filter" onclick="filterByDoctor()">
+	</form>
+
+
+
+    <!--Display the current pets-->
+    <h1>Current Pets:</h1>
+    <table>
+        <thead>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Species</th>
+        <th>Breed</th>
+        <th>Owner</th>
+        <th>Doctor</th>
+       
+
+        <tbody>
+            {{#each pet}}
+            <tr>
+                <td>{{p_name}}</td>
+                <td>{{age}}</td>
+                <td>{{species}}</td>
+                <td>{{breed}}</td>
+                <td>{{owner}}</td>
+                <td>{{doctor}}</td>
+                <td><button onclick="deletePet({{id}})">Delete</button></td>
+                <td><a href="/pet/{{id}}">Update</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <br />
+
+    <!--Add a new pet-->
+    <h1>Add new pet:</h1>
+    <form id="addPet" action="/pet" method="post">
+        <fieldset>
+            Name: <input type="text" name="p_name"><br>
+            Age: <input type="text" name="age"><br>
+            Species: <input type="text" name="species"><br>
+	    Breed: <input type="text" name="breed"><br>
+            Owner: <select name="owner_id">
+                {{#each owner}}
+                <option value="{{id}}">{{"o_name"}}</option>
+                {{/each}}
+                    </select><br>
+            Doctor: <select name="doctor_id">
+                {{#each doctor}}
+                <option value="{{id}}">{{"d_name"}}</option>
+                {{/each}}
+            </select><br>
+
+
+            <input type="submit" value="Submit">
+        </fieldset>
+
+    </form>
+</body>
+</html>

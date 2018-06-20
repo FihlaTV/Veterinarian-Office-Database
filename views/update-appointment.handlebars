@@ -1,0 +1,13 @@
+<html>
+<h1>Update appointment:</h1>
+<form id="update-appointment" action="/appointment" method="post">
+    Date: <input type="text" name="date" value="{{appointment.date}}"><br>
+    Time: <input type="text" name="time" value="{{appointment.time}}"><br>
+    Pet: <select name="pet" id="pet-selector"> 
+        {{#each pet}}
+        <option value="{{id}}">{{p_name}}</option>
+        {{/each}}
+    </select><br>
+</form>
+<button onclick="updateAppointment({{appointment.id}})">Update</button>
+</html>

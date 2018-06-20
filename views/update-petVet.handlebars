@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Update doctor for {{pet.p_name}}</title>
+</head>
+<body>
+<h1>Update doctors for pets</h1>
+	<form id="update-petVet" action="/petVet" method="post">
+	Doctor:
+		<select name="doctor" id="doctor-selector">
+			{{#each doctor}}
+			<option value="{{doctor_id}}">{{d_name}}</option>
+			{{/each}}
+		</select>
+	</form>
+	<button onclick="updatePetVet({{pet.id}})">Update</button>
+</body>
+</html>

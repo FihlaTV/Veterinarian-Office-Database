@@ -1,0 +1,27 @@
+﻿<html>
+<head>
+    <title>Pets and their doctors</title>
+</head>
+<body>
+    <h1>List of pets and their doctors</h1>
+    <table>
+        <thead>
+            <th>Pet</th>
+            <th>Doctor</th>
+        </thead>
+        <tbody>
+            <tr>
+                {{#each petVet}}
+                <td>{{p_name}}</td>
+                <td>{{d_name}}</td>
+		<td><a href="/petVet/{{pet_id}}">Update doctor</a></td>
+            </tr>
+            {{else}}
+                <b>No pet with any doctors found! Grant some using the form.</b>
+            {{/each}}
+        </tbody>
+    </table>
+	
+
+</body>
+</html>

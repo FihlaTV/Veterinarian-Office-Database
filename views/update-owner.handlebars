@@ -1,0 +1,14 @@
+﻿<html>
+<head>
+<h1>Update {{owner.o_name}} :</h1>
+</head>
+
+<body>
+    <form id="update-owner" action="/owner" method="post">
+        Name: <input type="text" name="o_name" value="{{owner.o_name}}"><br>
+        Phone: <input type="text" name="phone" value="{{owner.phone}}"><br>
+        Balance: <input type="text" name="balance" value="{{owner.balance}}"><br>
+    </form>
+    <button onclick="updateOwner({{owner.id}})">Update</button>
+</body>
+</html>

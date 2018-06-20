@@ -1,0 +1,35 @@
+﻿    <!--Display the current available medications-->
+<h1>Current Medications:</h1>
+<table>
+    <thead>
+    <th>Name</th>
+    <th>Cost</th>
+    <th></th>
+    </thead>
+
+    <tbody>
+        {{#each medication}}
+        <tr>
+            <td>{{m_name}}</td>
+	    <td>{{cost}}</td>
+            <td><button onclick="deleteMedication({{id}})">Delete</button></td>
+            <td><a href="/medication/{{id}}">Update</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<br />
+
+<!--Add a new medication-->
+<h1>Add new medication:</h1>
+<form id="addMedication" action="/medication" method="post">
+    <fieldset>
+        Name: <input type="text" name="m_name"><br>
+	Cost: <input type="text" name="cost"><br>
+        <input type="submit" value="Submit">
+    </fieldset>
+
+</form>
+</body>
+</html>

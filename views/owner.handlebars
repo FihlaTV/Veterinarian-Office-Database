@@ -1,0 +1,42 @@
+﻿<html>
+<head>
+    <title>owners info</title>
+</head>
+<body>
+
+    <!--Display the current owners-->
+    <h1>Current Owners:</h1>
+    <table>
+        <thead>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Balance</th>
+        </thead>
+
+        <tbody>
+            {{#each owner}}
+            <tr>
+                <td>{{o_name}}</td>
+                <td>{{phone}}</td>
+                <td>{{balance}}</td>
+		<td> <button onclick= "deleteOwner({{id}})">Delete</button></td>
+		<td><a href="/owner/{{id}}">Update</a></td>
+	    </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <br />
+
+    <!--Add a new owner-->
+    <h1>Add new owner:</h1>
+    <form id="addOwner" action="/owner" method="post">
+        <fieldset>
+            Name: <input type="text" name="o_name" ><br>
+            Phone: <input type="text" name="phone"><br>
+            Balance: <input type="text" name="balance"><br>
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+</body>
+</html>

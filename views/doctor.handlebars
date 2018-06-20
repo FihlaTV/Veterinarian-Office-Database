@@ -1,0 +1,37 @@
+﻿<html>
+<head>
+    <title>doctors info</title>
+</head>
+<body>
+
+    <!--Display the current doctors-->
+    <h1>Current Doctors:</h1>
+    <table>
+        <thead>
+        <th>Name</th>
+        </thead>
+
+        <tbody>
+            {{#each doctor}}
+            <tr>
+                <td>{{d_name}}</td>
+                <td><button onclick="deleteDoctor({{doctor_id}})">Delete</button></td>
+                <td><a href="/doctor/{{doctor_id}}">Update</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <br />
+
+    <!--Add a new doctor-->
+    <h1>Add new doctor:</h1>
+    <form id="addDoctor" action="/doctor" method="post">
+        <fieldset>
+            Name: <input type="text" name="d_name"><br>
+            <input type="submit" value="Submit">
+        </fieldset>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<html>
+
+<head>
+    <h1>Update {{pet.p_name}} :</h1>
+</head>
+
+<body>
+    <form id="update-pet" action="/pet" method="post">
+        Name: <input type="text" name="p_name" value="{{pet.p_name}}"><br>
+        Age: <input type="text" name="age" value="{{pet.age}}"><br>
+        Species:<input type="text" name="species" value="{{pet.species}}"><br>
+        Breed:<input type="text" name="breed" value="{{pet.breed}}"><br>
+        Doctor:<select name="doctor" id="doctor-selector">
+            {{#each doctor}}
+            <option value="{{id}}">{{d_name}}</option>
+            {{/each}}
+        </select><br>
+        Owner: <select name="owner" id="owner-selector">
+            {{#each owner}}
+            <option value="{{id}}">{{o_name}}</option>
+            {{/each}}
+        </select><br>
+    </form>
+    <button onclick="updatePet({{pet.id}})">Update</button>
+</body>
+</html>
